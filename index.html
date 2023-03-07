@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #drawingArea {
+            display: grid;
+            grid-template-columns: repeat(35, 30px);
+            grid-template-rows: repeat(24, 30px);
+        }
+
+        #palett {
+            display: grid;
+            grid-template-columns: repeat(16, 64px);
+            grid-template-rows: repeat(2, 64px);
+            border: 1px solid black;
+            max-width: 1024px;
+        }
+
+        div.cell {
+            border: 1px solid gray;
+        }
+        div.cell2 {
+            border: 1px solid rgb(3, 3, 3);
+        }
+
+        #selectedColor {
+            width: 100px;
+            height: 100px;
+            border: 1px solid gray;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        function colorTest() {
+            let myDiv = document.getElementById('selectedColor');
+            myDiv.style.backgroundColor = 'yellow';
+        }
+    </script>
+
+    Farger:
+    <div id="palett">
+        <div class="cell2"style="background-color: black" onclick="document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor"></div>
+        <div class="cell2"style="background-color: green" onclick="document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor"></div>
+        <div class="cell2"style="background-color: purple" onclick="document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor"></div>
+        <div class="cell2"style="background-color: blue" onclick="document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor"></div>
+        <div class="cell2"style="background-color: orange" onclick="document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor"></div>
+        <div class="cell2"style="background-color: yellow" onclick="document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor"></div>
+        <div class="cell2"style="background-color: red" onclick="document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor"></div>
+        <div class="cell2"style="background-color: brown" onclick="document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor"></div>
+        <div class="cell2"style="background-color: lightgray" onclick="document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor"></div>
+        <div class="cell2"style="background-color: darkgray" onclick="document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor"></div>
+        <div class="cell2"style="background-color: lightgreen" onclick="document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor"></div>
+        <div class="cell2"style="background-color: lightpink" onclick="document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor"></div>
+        <div class="cell2"style="background-color: lightblue" onclick="document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor"></div>
+        <div class="cell2"style="background-color: white" onclick="document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor"></div>
+        <div class="cell2"style="background-color: rgb(221, 88, 161)" onclick="document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor"></div>
+        <div class="cell2"style="background-color: lightsalmon" onclick="document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor"></div>
+        
+        <div class="cell2"style="background-color: rgb(16, 16, 16)" onclick="document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor"></div>
+        <div class="cell2"style="background-color: rgb(27, 27, 27)" onclick="document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor"></div>
+        <div class="cell2"style="background-color: rgb(36, 36, 36)" onclick="document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor"></div>
+        <div class="cell2"style="background-color: rgb(44, 44, 44)" onclick="document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor"></div>
+        <div class="cell2"style="background-color: rgb(51, 51, 51)" onclick="document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor"></div>
+        <div class="cell2"style="background-color: rgb(58, 58, 58)" onclick="document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor"></div>
+        <div class="cell2"style="background-color: rgb(65, 65, 65)" onclick="document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor"></div>
+        <div class="cell2"style="background-color: rgb(72, 72, 72)" onclick="document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor"></div>
+        <div class="cell2"style="background-color: rgb(79, 79, 79)" onclick="document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor"></div>
+        <div class="cell2"style="background-color: rgb(86, 86, 86)" onclick="document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor"></div>
+        <div class="cell2"style="background-color: rgb(93, 93, 93)" onclick="document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor"></div>
+        <div class="cell2"style="background-color: rgb(100, 100, 100)" onclick="document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor"></div>
+        <div class="cell2"style="background-color: rgb(107, 107, 107)" onclick="document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor"></div>
+        <div class="cell2"style="background-color: rgb(114, 114, 114)" onclick="document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor"></div>
+        <div class="cell2"style="background-color: rgb(121, 121, 121)" onclick="document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor"></div>
+        <div class="cell2"style="background-color: rgb(155, 155, 155)" onclick="document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor"></div>
+    </div>
+
+    Valgt farge:
+    <div id="selectedColor">
+
+    </div>
+
+    Tegn her:
+    <div id="drawingArea">
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+        <div class="cell" onclick="this.style.backgroundColor=document.getElementById('selectedColor').style.backgroundColor"></div>
+
+        
+
+
+        
+
+        
+        
+        
+
+       
+
+    </div>
+
+</body>
+
+</html>
